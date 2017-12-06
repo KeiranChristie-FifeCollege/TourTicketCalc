@@ -1,4 +1,121 @@
 Rem Project: TourTicketCalc
 Rem Created: Wednesday, December 06, 2017
+Rem Keiran Christie
 
 Rem ***** Main Source File *****
+
+UsrName$ = ""
+TourChoice = 0
+AdultTicket = 0
+ChildrenTicket = 0
+ConcessionTicket = 0
+TourOneAdult# = 20
+TourOneChild# = 10
+tourOneConcession# = 15
+TourTwoAdult# = 30
+TourTwoChild# = 15
+TourTwoConcession# = 22
+TourThreeAdult# = 50
+TourThreeChild# = 25
+TourThreeConcession# = 35
+TicketCalc# = 0
+AdultAmount = 0
+ChildAmount = 0
+ConcessionAmount = 0
+AdultTotal# = 0
+ChildTotal# = 0
+ConcessionTotal# = 0
+TotalCost# = 0
+Totalpeople = 0
+
+input "What is your name?: ", UsrName$
+
+InvalidKey:
+print "hello, ", UsrName$, ". Welcome to Kezzack Bus Tours Inc bus tour ticket calculator!."
+print ""
+wait 2000
+print "Tour Choices"
+print ""
+print "Tour 1 - 2 hours - Adult £20, Child £10, Concession £15"
+print ""
+print "Tour 2 - 4 hours - Adult £30, Child £15, Concession £22"
+print ""
+print "Tour 3 - 8 hours - Adult £50, Child £25, Concession £35"
+print ""
+wait 2000
+
+input "Select key 1 - 3 respectively for which tour you would like: ", TourChoice
+select TourChoice
+	
+	case 1
+	endcase
+	case 2
+	endcase
+	case 3
+	endcase
+	
+	case default
+		print "Invalid Key"
+		wait 2000
+		cls
+		Rem Leads to line 33
+		goto InvalidKey
+	endcase
+endselect
+
+input "How many adult tickets do you require? ", AdultAmount
+input "How many children tickets do you require? ", ChildAmount
+input "How many concession tickets do you require? ", ConcessionAmount
+
+select TourChoice
+
+	case 1
+		AdultTotal# = TourOneAdult# * AdultAmount
+		print "Total adult ticket price is: £", AdultTotal#
+		ChildTotal# = TourOneChild# * ChildAmount
+		print "Total child ticket price is: £", ChildTotal#
+		ConcessionTotal# = TourOneConcession# * ConcessionAmount
+		print "Total concession ticket price is: £", ConcessionTotal#
+		TotalCost# = AdultTotal# + ChildTotal# + ConcessionTotal#
+		print "The total cost of all tickets is: £", TotalCost#
+		TotalPeople = AdultAmount + ChildAmount + ConcessionAmount
+	endcase
+	
+	case 2
+		AdultTotal# = TourTwoAdult# * AdultAmount
+		print "Total adult ticket price is: £", AdultTotal#
+		ChildTotal# = TourTwoChild# * ChildAmount
+		print "Total child ticket price is: £", ChildTotal#
+		ConcessionTotal# = TourTwoConcession# * ConcessionAmount
+		print "Total concession ticket price is: £", ConcessionTotal#
+		TotalCost# = AdultTotal# + ChildTotal# + ConcessionTotal#
+		print "The total cost of all tickets is: £", TotalCost#
+		TotalPeople = AdultAmount + ChildAmount + ConcessionAmount
+	endcase
+	
+	case 3
+		AdultTotal# = TourThreeAdult# * AdultAmount
+		print "Total adult ticket price is: £", AdultTotal#
+		ChildTotal# = TourThreeChild# * ChildAmount
+		print "Total child ticket price is: £", ChildTotal#
+		ConcessionTotal# = TourThreeConcession# * ConcessionAmount
+		print "Total concession ticket price is: £", ConcessionTotal#
+		TotalCost# = AdultTotal# + ChildTotal# + ConcessionTotal#
+		print "The total cost of all tickets is: £", TotalCost#
+		TotalPeople = AdultAmount + ChildAmount + ConcessionAmount
+	endcase
+endselect
+	
+print "Press anykey to continue..."
+wait key
+
+cls
+print "Kezzack Bus Tours Inc"
+print ""
+print "Thank you for your service, ", UsrName$, "."
+print ""
+print "Tour selected: ", TourChoice, ". Number of Travelers: ", Totalpeople
+print ""
+print "The total cost is: ", TotalCost#
+wait key
+end
